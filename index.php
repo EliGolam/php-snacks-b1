@@ -32,7 +32,7 @@
     'name' => "", 
     'age' => "", 
     'email' => "",
-    'isSuccess' => False
+    'isSuccessful' => False
   ];
 
   $snack2Parameters = ["name", "age", "email"];
@@ -51,14 +51,12 @@
   $isValidAge = is_int(intval($age));
   $isValidEmail = strpos($email, '@') && strpos($email, '.');
 
-  var_dump($isValidAge);
-
   // Verify inputs
   if( $isValidName && $isValidAge && $isValidEmail ) {
-    $snack2Values['isSuccess'] = True;
+    $snack2Values['isSuccessful'] = True;
   };
 
-  if ( $snack2Values['isSuccess'] ) {
+  if ( $snack2Values['isSuccessful'] ) {
     $accessMessage = "Access Successful";
   } else {
     $accessMessage = "Unable to access";
@@ -128,7 +126,7 @@
     </nav>
   </header>
 
-  <main>
+  <main class="container flow">
       <section id="snack1">
         <h2>Mini Challenge 1</h2>
         
@@ -152,6 +150,8 @@
         </article>
       </section>
 
+      <hr />
+
       <section id="snack2">
         <h2>Mini Challenge 2</h2>
         <p>URL parameters: <em>name</em>, <em>age</em>, <em>email</em></p>
@@ -160,7 +160,7 @@
           <h3>VarDump Outputs for testing</h3>
           <p><?php var_dump($snack2Values) ?></p>
         </article>
-
+        
         <article>
           <h3>Login Values</h3>
           <p>Name: <?= $name ?></p>
