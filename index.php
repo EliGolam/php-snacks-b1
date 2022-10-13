@@ -39,7 +39,7 @@
 
   foreach($snack2Parameters as &$parameter) {
     if (isset($_GET[$parameter])) {
-      $snack2Values[$parameter] = $_GET[$parameter];
+      $snack2Values[$parameter] = trim($_GET[$parameter]);
     }
   }
 
@@ -61,6 +61,50 @@
   } else {
     $accessMessage = "Unable to access";
   };
+
+
+  /* SNACK 3 */
+  $posts = [
+
+    '10/01/2019' => [
+      [
+          'title' => 'Post 1',
+          'author' => 'Michele Papagni',
+          'text' => 'Testo post 1'
+      ],
+      [
+          'title' => 'Post 2',
+          'author' => 'Michele Papagni',
+          'text' => 'Testo post 2'
+      ],
+    ],
+    '10/02/2019' => [
+      [
+          'title' => 'Post 3',
+          'author' => 'Michele Papagni',
+          'text' => 'Testo post 3'
+      ]
+    ],
+    '15/05/2019' => [
+      [
+          'title' => 'Post 4',
+          'author' => 'Michele Papagni',
+          'text' => 'Testo post 4'
+      ],
+      [
+          'title' => 'Post 5',
+          'author' => 'Michele Papagni',
+          'text' => 'Testo post 5'
+      ],
+      [
+          'title' => 'Post 6',
+          'author' => 'Michele Papagni',
+          'text' => 'Testo post 6'
+      ]
+    ],
+  ];
+
+  $postDates = array_keys($posts);
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -168,6 +212,25 @@
           <p>Email: <?= $email ?></p>
           <p><strong><?= $accessMessage ?></strong></p>
         </article>
+      </section>
+
+      <section id="snack3">
+            <h2>Mini Challenge 3</h2>
+            <p>Pseudo blogposts</p>
+
+            <?php 
+              foreach ($postDates as &$date) {
+                ?><h3 class="post-date"><?= $date ?></h3><?php
+
+                foreach ($posts[$date] as &$post) {
+                  ?><article>
+                    <h4 class="post-title"><?= $post['title'] ?></h4>
+                    <p class="post-author">written by <?= $post['author'] ?></p>
+                    <p class="post-content"><?= $post['text'] ?></p>
+                  </article><?php
+                }
+              }
+            ?>
       </section>
   </main>
 </body>
