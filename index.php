@@ -31,7 +31,8 @@
   $snack2Values = [
     'name' => "", 
     'age' => "", 
-    'email' => ""
+    'email' => "",
+    'isSuccess' => False
   ];
 
   $snack2Parameters = ["name", "age", "email"];
@@ -41,6 +42,27 @@
       $snack2Values[$parameter] = $_GET[$parameter];
     }
   }
+
+  // Deconstructing for easier readability
+  ['name' => $name, 'age' => $age, 'email' => $email] = $snack2Values;
+  
+  // Check Booleans
+  $isValidName = strlen($name) >= 3;
+  $isValidAge = is_int(intval($age));
+  $isValidEmail = strpos($email, '@') && strpos($email, '.');
+
+  var_dump($isValidAge);
+
+  // Verify inputs
+  if( $isValidName && $isValidAge && $isValidEmail ) {
+    $snack2Values['isSuccess'] = True;
+  };
+
+  if ( $snack2Values['isSuccess'] ) {
+    $accessMessage = "Access Successful";
+  } else {
+    $accessMessage = "Unable to access";
+  };
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -137,6 +159,14 @@
         <article>
           <h3>VarDump Outputs for testing</h3>
           <p><?php var_dump($snack2Values) ?></p>
+        </article>
+
+        <article>
+          <h3>Login Values</h3>
+          <p>Name: <?= $name ?></p>
+          <p>Age: <?= $age ?></p>
+          <p>Email: <?= $email ?></p>
+          <p><strong><?= $accessMessage ?></strong></p>
         </article>
       </section>
   </main>
