@@ -25,7 +25,22 @@
       'homeScore' => rand(30, 100),
       'awayScore' => rand(30, 100)
     ]
-  ]
+  ];
+
+  /* SNACK 2 */
+  $snack2Values = [
+    'name' => "", 
+    'age' => "", 
+    'email' => ""
+  ];
+
+  $snack2Parameters = ["name", "age", "email"];
+
+  foreach($snack2Parameters as &$parameter) {
+    if (isset($_GET[$parameter])) {
+      $snack2Values[$parameter] = $_GET[$parameter];
+    }
+  }
 
 ?><!DOCTYPE html>
 <html lang="en">
@@ -106,13 +121,22 @@
 
           <!-- PHP -->
           <?php 
-            for($i = 0; $i < count($games); $i++) {
-              $game = $games[$i];
-              $string = $game['homeTeam'] . ' - ' . $game['awayTeam'] . ' | ' . ''$game['homeScore'] . ' - ' . $game['awayScore'];
+            foreach($games as ['homeTeam' => $homeTeam, 'awayTeam' => $awayTeam, 'homeScore' => $homeScore, 'awayScore' => $awayScore]) {
+              $formatGameScore = $homeTeam . " - " . $awayTeam . " | " . $homeScore . " - " . $awayScore;
 
-              ?><p><?= $string ?></p><?php
+              ?><p><?= $formatGameScore ?></p><?php
             }
           ?>
+        </article>
+      </section>
+
+      <section id="snack2">
+        <h2>Mini Challenge 2</h2>
+        <p>URL parameters: <em>name</em>, <em>age</em>, <em>email</em></p>
+            
+        <article>
+          <h3>VarDump Outputs for testing</h3>
+          <p><?php var_dump($snack2Values) ?></p>
         </article>
       </section>
   </main>
