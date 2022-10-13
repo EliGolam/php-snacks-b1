@@ -26,6 +26,10 @@ body {
   text-align: center;
 }
 
+section {
+  scroll-padding-top: 2rem;
+}
+
 .flow > * + * {
   margin-top: 3em;
 }

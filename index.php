@@ -106,6 +106,32 @@
 
   $postDates = array_keys($posts);
 
+  /* SNACK 4 */
+  $longText = "When Mr Bilbo Baggins of Bag End announced that he
+  would shortly be celebrating his eleventy-first birthday with
+  a party of special magnificence, there was much talk and
+  excitement in Hobbiton.
+  Bilbo was very rich and very peculiar, and had been the
+  wonder of the Shire for sixty years, ever since his remarkable
+  disappearance and unexpected return. The riches he had
+  brought back from his travels had now become a local legend,
+  and it was popularly believed, whatever the old folk might
+  say, that the Hill at Bag End was full of tunnels stuffed with
+  treasure. And if that was not enough for fame, there was also
+  his prolonged vigour to marvel at. Time wore on, but it
+  seemed to have little effect on Mr Baggins. At ninety he was
+  much the same as at fifty. At ninety-nine they began to call
+  him well-preserved; but unchanged would have been nearer the
+  mark. There were some that shook their heads and thought
+  this was too much of a good thing; it seemed unfair that
+  anyone should possess (apparently) perpetual youth as well
+  as (reputedly) inexhaustible wealth.
+  ‘It will have to be paid for,’ they said. ‘It isn’t natural, and
+  trouble will come of it!’";
+
+  $paragraphs = explode('.', $longText);
+  
+  
 ?><!DOCTYPE html>
 <html lang="en">
 <!-- METADATA -->
@@ -214,6 +240,8 @@
         </article>
       </section>
 
+      <hr />
+
       <section id="snack3">
             <h2>Mini Challenge 3</h2>
             <p>Pseudo blogposts</p>
@@ -231,6 +259,28 @@
                 }
               }
             ?>
+      </section>
+
+      <hr />
+
+      <section id="snack4">
+        <h2>Mini Challenge 4</h2>
+        <p>Parse Long paragraph</p>
+
+        <article class="flow">
+          <h3>The Fellowship of the Ring</h3>
+          <?php 
+            foreach($paragraphs as &$paragraph) {
+              ?><p><?= $paragraph ?></p><?php
+            }
+          ?>
+        </article>
+      </section>
+
+      <hr />
+
+      <section id="snack5">
+        <h2>Mini Challenge 5</h2>
       </section>
   </main>
 </body>
