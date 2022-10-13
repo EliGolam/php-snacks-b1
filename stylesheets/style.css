@@ -52,3 +52,17 @@ em {
 strong {
   color: var(--clr-accent);
 }
+
+
+/* BLOCKS */
+/* Header */
+.nav-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.nav-link {
+  color: var(--clr-accent-3);
+  font-size: .8rem;
+}

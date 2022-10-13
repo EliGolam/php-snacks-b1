@@ -1,8 +1,37 @@
-<!DOCTYPE html>
+<?php
+  /* SNACK 1 */
+  $games = [
+    [
+      'homeTeam' => "Grave Falcons",
+      'awayTeam' => "Heavenly Lions",
+      'homeScore' => rand(30, 100),
+      'awayScore' => rand(30, 100)
+    ],
+    [
+      'homeTeam' => "Loyal Foxes",
+      'awayTeam' => "Gotham Predators",
+      'homeScore' => rand(30, 100),
+      'awayScore' => rand(30, 100)
+    ],
+    [
+      'homeTeam' => "Voodoo Jets",
+      'awayTeam' => "Lady Commanders",
+      'homeScore' => rand(30, 100),
+      'awayScore' => rand(30, 100)
+    ],
+    [
+      'homeTeam' => "Crimson Girls",
+      'awayTeam' => "Pink SuperSonics",
+      'homeScore' => rand(30, 100),
+      'awayScore' => rand(30, 100)
+    ]
+  ]
+
+?><!DOCTYPE html>
 <html lang="en">
 <!-- METADATA -->
 <head>
-    <title>API Practice</title>
+    <title>PHP Practice | Mini coding challenges</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
     <meta charset="UTF-8">
@@ -47,31 +76,45 @@
 
 <!-- BODY -->
 <body>
-    <header class="container">
-        <h1 class="title">API Practice</h1>
-        <p class="subtitle">Playground</p>
-    </header>
+  <header class="container">
+    <h1 class="title">PHP Practice | Mini coding challenges</h1>
+    <p class="subtitle">by Elias Mahfuzul</p>
 
-    <div id="app" class="container exercises">
-        <div class="results-container row">
-            <p
-                v-show="loading"
-                class="text-center"
-            >Loading...</p>
-            
-            <p 
-                v-show="!loading"
-                v-for="email in emails"
-                class="result col-12"
-            >
-                {{ email }}
-            </p>
-        </div>
+    <nav class="top-nav">
+      <ul class="nav-links">
+        <li class="nav-link"><a href="#snack1">Challenge 1</a></li>
+        <li class="nav-link"><a href="#snack2">Challenge 2</a></li>
+        <li class="nav-link"><a href="#snack3">Challenge 3</a></li>
+        <li class="nav-link"><a href="#snack4">Challenge 4</a></li>
+        <li class="nav-link"><a href="#snack5">Challenge 5</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+      <section id="snack1">
+        <h2>Mini Challenge 1</h2>
         
-    </div>
-    
-    <div id="live-coding" class="container exercises">
-        <p class="result"></p>
-    </div>
+        <!-- DEBUG OUTPUT TESTING -->
+        <!-- <article>
+          <h3>Test Outputs</h3>
+          <p><?php var_dump($games) ?></p>
+        </article> -->
+
+        <article>
+          <h3>Games</h3>
+
+          <!-- PHP -->
+          <?php 
+            for($i = 0; $i < count($games); $i++) {
+              $game = $games[$i];
+              $string = $game['homeTeam'] . ' - ' . $game['awayTeam'] . ' | ' . ''$game['homeScore'] . ' - ' . $game['awayScore'];
+
+              ?><p><?= $string ?></p><?php
+            }
+          ?>
+        </article>
+      </section>
+  </main>
 </body>
 </html>
